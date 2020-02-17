@@ -1,0 +1,12 @@
+Please note that this is an initial proposal. There Will be various additions
+and/or ommisions as we move forward with this project.That being said this is
+my initial proposal for the project. If you have anything you guys like to add/
+remove feel free to do it and inform the rest of the team.
+
+Propostions for project
+
+	1. Find Nearby Doctors
+	2. Search Doctors by Name, Specialization, Area or even Hospitals
+	3. List all Educational Qualifications of Doctor
+	4. Allow user to contact Doctors and Hospitals
+	
