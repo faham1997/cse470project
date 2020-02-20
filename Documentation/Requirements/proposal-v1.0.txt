@@ -1,0 +1,24 @@
+Doctors Perspective :
+1.Add Schedule
+2.Delete Appointment
+3.Delete Patient
+4.Delete Schedule
+5.Doctors Dashboard
+6.Doctor Profile
+7.Logout
+8.Patient List
+
+Patients Perspective :
+1. Appointment
+2. Get Schedule
+3. patient dashboard
+4. Patient profile
+5. Patient update profile
+
+Others : 
+1.Search Doctor by area
+2.Search Doctor by Genre
+3.Search by Hostpital
+4.Search by Name
+
+N.B : This is the initial idea or proposal of feature list for the project
