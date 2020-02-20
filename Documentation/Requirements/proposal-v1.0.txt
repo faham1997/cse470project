@@ -14,11 +14,20 @@ Patients Perspective :
 3. patient dashboard
 4. Patient profile
 5. Patient update profile
+6. Medicel Report
+7. Patient Medicine History
 
 Others : 
 1.Search Doctor by area
 2.Search Doctor by Genre
 3.Search by Hostpital
 4.Search by Name
+
+
+Payment : 
+1. COD
+2. Bkash
+3. Rocket
+4. Invoice 
 
 N.B : This is the initial idea or proposal of feature list for the project
