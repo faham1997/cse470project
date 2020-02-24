@@ -1,0 +1,16 @@
+{
+  "name": "470_backend",
+  "version": "1.0.0",
+  "description": "backend for 470 project with Express js",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon server.js"
+  },
+  "author": "Riasat",
+  "license": "ISC"
+}
