@@ -20,13 +20,34 @@ const pg = require('knex')({
 app.get('/d/name=:name/special=:special/gender=:gender', async(req, res)=>{
 
   const {name, special, gender} = req.params
-  //doctor GET methods
+  
+  //import doctor GET methods
   const GET_d = require('./GET_doctor') 
 
-  // set inputs as a js object
+  // set search terms as a js object
   const s_terms = await GET_d.set_input(name,special,gender)
   try{
     let data = await pg.select('doctor_name', 'specialization', 'gender').from('doctor').where(s_terms)
+    res.status(200).json(data)
+  }catch(err){
+    res.status(400).json("search_failed")
+  }
+
+})
+
+//get hospital info by name & type
+app.get('/h/name=:name/type=:type', async(req, res)=>{
+
+  const {name, type} = req.params
+
+  //import hospital GET methods
+  const GET_h = require('./GET_hospital') 
+
+  // set search terms as a js object
+  const s_terms = await GET_h.set_input(name,type)
+
+  try{
+    let data = await pg.select('hospital_name', 'hospital_type', 'hospital_location','hospital_phone','hospital_website').from('hospital').where(s_terms)
     res.status(200).json(data)
   }catch(err){
     res.status(400).json("search_failed")
