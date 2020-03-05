@@ -49,7 +49,8 @@ app.get('/h/name=:name/type=:type', async(req, res)=>{
   const s_terms = await GET_h.set_input(name,type)
 
   try{
-    let data = await pg.select('hospital_name', 'hospital_type', 'hospital_location','hospital_phone','hospital_website').from('hospital').where(s_terms)
+    let data = await pg.select('*').from('hospital_info').where(s_terms)
+    data = await GET_h.set_res(data)
     res.status(200).json(data)
   }catch(err){
     res.status(400).json("search_failed")
