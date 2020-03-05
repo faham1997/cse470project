@@ -5,7 +5,7 @@
 -- Dumped from database version 12.2
 -- Dumped by pg_dump version 12.2
 
--- Started on 2020-03-04 19:38:42 +06
+-- Started on 2020-03-05 21:09:17 +06
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -20,7 +20,7 @@ SET row_security = off;
 
 DROP DATABASE "470project";
 --
--- TOC entry 2937 (class 1262 OID 16385)
+-- TOC entry 2968 (class 1262 OID 16385)
 -- Name: 470project; Type: DATABASE; Schema: -; Owner: postgres
 --
 
@@ -62,6 +62,32 @@ CREATE TABLE public.doctor (
 ALTER TABLE public.doctor OWNER TO postgres;
 
 --
+-- TOC entry 207 (class 1259 OID 32806)
+-- Name: doctor_education; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.doctor_education (
+    doctor_id character varying(100),
+    qualification character varying(100)
+);
+
+
+ALTER TABLE public.doctor_education OWNER TO postgres;
+
+--
+-- TOC entry 205 (class 1259 OID 32785)
+-- Name: doctor_hospital; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.doctor_hospital (
+    doctor_id character varying(100),
+    hospital_id character varying(100)
+);
+
+
+ALTER TABLE public.doctor_hospital OWNER TO postgres;
+
+--
 -- TOC entry 203 (class 1259 OID 24585)
 -- Name: hospital; Type: TABLE; Schema: public; Owner: postgres
 --
@@ -79,29 +105,114 @@ CREATE TABLE public.hospital (
 ALTER TABLE public.hospital OWNER TO postgres;
 
 --
--- TOC entry 2930 (class 0 OID 16386)
+-- TOC entry 208 (class 1259 OID 32819)
+-- Name: doctor_info; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW public.doctor_info AS
+ SELECT doctor.doctor_name,
+    doctor.specialization,
+    doctor_education.qualification,
+    doctor.gender,
+    hospital.hospital_name
+   FROM public.doctor,
+    public.hospital,
+    public.doctor_hospital,
+    public.doctor_education
+  WHERE (((doctor.doctor_id)::text = (doctor_hospital.doctor_id)::text) AND ((hospital.hospital_id)::text = (doctor_hospital.hospital_id)::text) AND ((doctor.doctor_id)::text = (doctor_education.doctor_id)::text));
+
+
+ALTER TABLE public.doctor_info OWNER TO postgres;
+
+--
+-- TOC entry 204 (class 1259 OID 32769)
+-- Name: education; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.education (
+    qualification character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.education OWNER TO postgres;
+
+--
+-- TOC entry 206 (class 1259 OID 32802)
+-- Name: hospital_info; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW public.hospital_info AS
+ SELECT hospital.hospital_name,
+    hospital.hospital_type,
+    doctor.doctor_name,
+    hospital.hospital_location,
+    hospital.hospital_phone,
+    hospital.hospital_website
+   FROM public.doctor,
+    public.hospital,
+    public.doctor_hospital
+  WHERE (((doctor.doctor_id)::text = (doctor_hospital.doctor_id)::text) AND ((hospital.hospital_id)::text = (doctor_hospital.hospital_id)::text));
+
+
+ALTER TABLE public.hospital_info OWNER TO postgres;
+
+--
+-- TOC entry 2958 (class 0 OID 16386)
 -- Dependencies: 202
 -- Data for Name: doctor; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.doctor (doctor_id, doctor_name, specialization, gender) VALUES ('ysdbckjasbxk', 'Riasat', 'Medicine', 'm');
-INSERT INTO public.doctor (doctor_id, doctor_name, specialization, gender) VALUES ('kjdsnkjdas', 'Faham', 'Cupcakes', 'm');
-INSERT INTO public.doctor (doctor_id, doctor_name, specialization, gender) VALUES ('jwdnqwoidnoqwi', 'Ipshita', 'Heart Specialist', 'f');
+INSERT INTO public.doctor (doctor_id, doctor_name, specialization, gender) VALUES ('aaa', 'Riasat', 'Medicine', 'm');
+INSERT INTO public.doctor (doctor_id, doctor_name, specialization, gender) VALUES ('bbb', 'Faham', 'Cupcakes', 'm');
+INSERT INTO public.doctor (doctor_id, doctor_name, specialization, gender) VALUES ('ccc', 'Ipshita', 'Heart Specialist', 'f');
 
 
 --
--- TOC entry 2931 (class 0 OID 24585)
+-- TOC entry 2962 (class 0 OID 32806)
+-- Dependencies: 207
+-- Data for Name: doctor_education; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.doctor_education (doctor_id, qualification) VALUES ('aaa', 'MBBS');
+INSERT INTO public.doctor_education (doctor_id, qualification) VALUES ('bbb', 'MBBS');
+INSERT INTO public.doctor_education (doctor_id, qualification) VALUES ('ccc', 'MBBS');
+INSERT INTO public.doctor_education (doctor_id, qualification) VALUES ('ccc', 'FCPS');
+
+
+--
+-- TOC entry 2961 (class 0 OID 32785)
+-- Dependencies: 205
+-- Data for Name: doctor_hospital; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.doctor_hospital (doctor_id, hospital_id) VALUES ('aaa', 'xxxx');
+INSERT INTO public.doctor_hospital (doctor_id, hospital_id) VALUES ('bbb', 'yyyy');
+INSERT INTO public.doctor_hospital (doctor_id, hospital_id) VALUES ('ccc', 'zzzz');
+
+
+--
+-- TOC entry 2960 (class 0 OID 32769)
+-- Dependencies: 204
+-- Data for Name: education; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.education (qualification) VALUES ('MBBS');
+INSERT INTO public.education (qualification) VALUES ('FCPS');
+
+
+--
+-- TOC entry 2959 (class 0 OID 24585)
 -- Dependencies: 203
 -- Data for Name: hospital; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.hospital (hospital_id, hospital_name, hospital_type, hospital_location, hospital_phone, hospital_website) VALUES ('saoidjaosi', 'Batman Hospital', 'Hospital', 'Crime Alley', '5554545', 'www.batman.com');
-INSERT INTO public.hospital (hospital_id, hospital_name, hospital_type, hospital_location, hospital_phone, hospital_website) VALUES ('wueygfiwue', 'Stalin Hospital', 'Gulag', 'Soviet Union', '', '');
-INSERT INTO public.hospital (hospital_id, hospital_name, hospital_type, hospital_location, hospital_phone, hospital_website) VALUES ('sdhaisasdns', 'Meoww Hospital', 'Cuteness Center', 'Celestia', '', 'www.iAmCute.glee');
+INSERT INTO public.hospital (hospital_id, hospital_name, hospital_type, hospital_location, hospital_phone, hospital_website) VALUES ('xxxx', 'Batman Hospital', 'Hospital', 'Crime Alley', '5554545', 'www.batman.com');
+INSERT INTO public.hospital (hospital_id, hospital_name, hospital_type, hospital_location, hospital_phone, hospital_website) VALUES ('yyyy', 'Stalin Hospital', 'Gulag', 'Soviet Union', '', '');
+INSERT INTO public.hospital (hospital_id, hospital_name, hospital_type, hospital_location, hospital_phone, hospital_website) VALUES ('zzzz', 'Meoww Hospital', 'Cuteness Center', 'Celestia', '', 'www.iAmCute.glee');
 
 
 --
--- TOC entry 2801 (class 2606 OID 16390)
+-- TOC entry 2821 (class 2606 OID 16390)
 -- Name: doctor doctor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -110,7 +221,16 @@ ALTER TABLE ONLY public.doctor
 
 
 --
--- TOC entry 2803 (class 2606 OID 24592)
+-- TOC entry 2825 (class 2606 OID 32773)
+-- Name: education education_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.education
+    ADD CONSTRAINT education_pkey PRIMARY KEY (qualification);
+
+
+--
+-- TOC entry 2823 (class 2606 OID 24592)
 -- Name: hospital hospital_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -118,7 +238,43 @@ ALTER TABLE ONLY public.hospital
     ADD CONSTRAINT hospital_pkey PRIMARY KEY (hospital_id);
 
 
--- Completed on 2020-03-04 19:38:43 +06
+--
+-- TOC entry 2828 (class 2606 OID 32809)
+-- Name: doctor_education doctor_education_doctor_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.doctor_education
+    ADD CONSTRAINT doctor_education_doctor_id_fkey FOREIGN KEY (doctor_id) REFERENCES public.doctor(doctor_id);
+
+
+--
+-- TOC entry 2829 (class 2606 OID 32814)
+-- Name: doctor_education doctor_education_qualification_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.doctor_education
+    ADD CONSTRAINT doctor_education_qualification_fkey FOREIGN KEY (qualification) REFERENCES public.education(qualification);
+
+
+--
+-- TOC entry 2826 (class 2606 OID 32788)
+-- Name: doctor_hospital doctor_hospital_doctor_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.doctor_hospital
+    ADD CONSTRAINT doctor_hospital_doctor_id_fkey FOREIGN KEY (doctor_id) REFERENCES public.doctor(doctor_id);
+
+
+--
+-- TOC entry 2827 (class 2606 OID 32793)
+-- Name: doctor_hospital doctor_hospital_hospital_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.doctor_hospital
+    ADD CONSTRAINT doctor_hospital_hospital_id_fkey FOREIGN KEY (hospital_id) REFERENCES public.hospital(hospital_id);
+
+
+-- Completed on 2020-03-05 21:09:20 +06
 
 --
 -- PostgreSQL database dump complete
