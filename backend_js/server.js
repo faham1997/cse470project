@@ -16,18 +16,20 @@ const pg = require('knex')({
   }
 });
 
+
 //get doctor info by name, gender & specialization
 app.get('/d/name=:name/special=:special/gender=:gender', async(req, res)=>{
 
   const {name, special, gender} = req.params
   
   //import doctor GET methods
-  const GET_d = require('./GET_doctor') 
+  const GET_d = require('./GET_doctor')
 
   // set search terms as a js object
   const s_terms = await GET_d.set_input(name,special,gender)
   try{
-    let data = await pg.select('doctor_name', 'specialization', 'gender').from('doctor').where(s_terms)
+    let data = await pg.select('*').from('doctor_info').where(s_terms)
+    data = await GET_d.set_res(data)
     res.status(200).json(data)
   }catch(err){
     res.status(400).json("search_failed")
