@@ -3,15 +3,7 @@ const express = require("express")
 const app = express()
 
 // knex db
-const knex = require('knex')
-const pg = require('knex')({
-  client: 'pg',
-  connection: {
-    user : 'postgres',
-    password : 'deepfreeze',
-    database : '470project'
-  }
-});
+const pg = require('./pg_knex')
 
 // deault root path for testing
 app.get('/', (req, res) =>{
