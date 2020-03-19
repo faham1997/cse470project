@@ -16,8 +16,9 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "node server.js",
-    "run-dev": "nodemon server.js"
+    "prestart": "node src/prestart.js",
+    "start": "node src/server.js",
+    "run_dev": "nodemon src/server.js"
   },
   "author": "Riasat",
   "license": "ISC"
