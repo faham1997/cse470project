@@ -1,8 +1,6 @@
 let fs = require('fs')
 
-console.log('prestarting')
-
-fs.readFile('./src//app.js', 'utf8', (err,data) =>{
+fs.readFile('./src/app.js', 'utf8', (err,data) =>{
   if (err) {
     return console.log(err);
   }
