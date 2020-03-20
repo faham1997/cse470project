@@ -1,7 +1,7 @@
 //constants
-const PORT = 3000
+const PORT = process.env.PORT
 
 // import app
 const app = require('./app').app
 
-app.listen(PORT)
+app.listen(PORT || 3000)
