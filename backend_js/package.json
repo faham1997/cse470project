@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.17.1",
+    "fetch": "^1.1.0",
     "knex": "^0.20.10",
     "nodemon": "^2.0.2",
     "pg": "^7.18.2",
