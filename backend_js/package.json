@@ -15,6 +15,7 @@
     "supertest": "^4.0.2"
   },
   "scripts": {
+    "pretest": "node src/pretest.js",
     "test": "jest",
     "prestart": "node src/prestart.js",
     "start": "node src/server.js",

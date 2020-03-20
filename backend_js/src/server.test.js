@@ -10,16 +10,16 @@ describe("Test the root path", () => {
     });
 });
 
-describe("Test the root path", () => {
-    test("It should response the GET method", async(done) => {
+describe("Test the doctor path", () => {
+    test("It should respond to the GET method", async(done) => {
         const response  = await request(app).get("/d/name=null/special=null/gender=null")
         expect(response.statusCode).toBe(200);
         done();
     });
 });
 
-describe("Test the root path", () => {
-    test("It should response the GET method", async(done) => {
+describe("Test the hospital path", () => {
+    test("It should respond to the GET method", async(done) => {
         const response = await request(app).get("/h/name=null/type=null")
         expect(response.statusCode).toBe(200);
         done();
