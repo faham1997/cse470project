@@ -3,7 +3,7 @@ const express = require("express")
 const app = express()
 
 // knex db
-const pg = require('./pg_knex')
+const pg = require('./pg_knex_deploy')
 
 // deault root path for testing
 app.get('/', (req, res) =>{
