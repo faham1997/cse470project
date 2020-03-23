@@ -32,7 +32,7 @@
 
 #### Other Information
 
-| Instructor: | Abu Muhammad Shibbir Khan |
+| Instructor: | Abu Mohammad Shabbir Khan |
 | --- | --- |
 | Course: | Software Engineering |
 | Course Code: | CSE 470 |
