@@ -7,11 +7,15 @@ import Homepage from './Components/Homepage/Homepage'
 
 function App() {
 
-  const [currentPage, setCurrentPage] = useState(<Homepage/>) 
-  
+  // hostname
+  const hostname = "https://cse470project.herokuapp.com/"
+
+  // current page state
+  const [currentPage, setCurrentPage] = useState(<Homepage/>)
+
   return (
     <div className="App">
-      <Navigation/>
+      <Navigation currentPageSetter = {setCurrentPage} hostname = {hostname}/>
       <div>
         {currentPage}
       </div>
