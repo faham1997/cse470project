@@ -1,4 +1,4 @@
-< INSERT A PROJECT NAME HERE ( I couldn't think of any good name >
+< Doctorpur >
 
 This is a short note for the project members for the safety of the project :
 1. Don't push anything to master branch.
