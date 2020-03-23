@@ -5,10 +5,15 @@ const app = express()
 // knex db
 const pg = require('./pg_knex_deploy')
 
+// cors
+const cors = require('cors')
+app.use(cors())
+
 // deault root path for testing
 app.get('/', (req, res) =>{
     res.status(200).json("This is the root path. Please consult the api docs for more info")
 })
+
 
 
 //get doctor info by name, gender & specialization

@@ -4,6 +4,7 @@
   "description": "backend for 470 project with Express js",
   "main": "server.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "fetch": "^1.1.0",
     "knex": "^0.20.10",
