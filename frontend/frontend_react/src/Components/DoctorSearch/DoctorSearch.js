@@ -4,10 +4,24 @@ import React, {useEffect, useState} from 'react'
 // import react bootstrap
 import {Form, Dropdown,} from 'react-bootstrap'
 
+// import local css file
+import './DoctorSearch.css'
+
 // import local modles
 import SearchList from './SearchList/SearchList';
 
 const DoctorSearch = ({hostname}) =>{
+
+    // func for translating gender values
+    const translateGender = (g) =>{
+        if( g === 'm'){
+            return 'Male'
+        }else if( g === 'f'){
+            return 'Female'
+        }else{
+            return 'All'
+        }
+    }
 
     // search info variables
     let [name, setName] = useState('null');
@@ -55,7 +69,8 @@ const DoctorSearch = ({hostname}) =>{
     
     return(
         <div>
-            <Form>
+            <h1 className="doctor_title"> Search for your desired Doctor Here</h1>
+            <Form className = "doctor_form">
                 <Form.Group>
                     <Form.Label> Doctors Name </Form.Label>
                     <Form.Control type="text" placeholder="Normal text" onChange = {onNameChange}/>
@@ -66,7 +81,7 @@ const DoctorSearch = ({hostname}) =>{
                     <Form.Label> Doctor Gender</Form.Label>
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="dropdown-basic">
-                            Dropdown Button
+                            {translateGender(gender)}
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>

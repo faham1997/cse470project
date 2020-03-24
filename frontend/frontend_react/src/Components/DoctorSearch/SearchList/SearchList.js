@@ -8,22 +8,24 @@ import './SearchList.css'
 import ListItem from './ListItem/ListItem'
 
 const SearchList = ({objList}) =>{
-    const SearchCollection = objList.map( (obj) =>{
+    const SearchCollection = objList.map( (obj, i) =>{
         return(
-            <ListItem obj={obj}/>
+            <ListItem key = {i} obj={obj}/>
         )
     })
 
     return(
         <table>
-            <tr>
-                <th>Doctor Name</th>
-                <th>Specialization</th>
-                <th>Gender</th>
-                <th>Qualifications</th>
-                <th>Hospitals</th>
-            </tr>           
-            {SearchCollection}
+            <tbody>
+                <tr>
+                    <th>Doctor Name</th>
+                    <th>Specialization</th>
+                    <th>Gender</th>
+                    <th>Qualifications</th>
+                    <th>Hospitals</th>
+                </tr>           
+                {SearchCollection}
+            </tbody>
         </table>
     )
 }

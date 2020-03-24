@@ -6,15 +6,15 @@ import './ListItem.css'
 
 const ListItem = ({obj}) =>{
 
-    const qualificationList = obj.qualification.map( (item) =>{
+    const qualificationList = obj.qualification.map( (item, i) =>{
         return(
-            <p> {item} </p>
+            <p key = {i}> {item} </p>
         )
     })
 
-    const hospitalNameList = obj.hospital_name.map( (item) =>{
+    const hospitalNameList = obj.hospital_name.map( (item, i) =>{
         return(
-            <p> {item} </p>
+            <p key = {i}> {item} </p>
         )
     })
     
