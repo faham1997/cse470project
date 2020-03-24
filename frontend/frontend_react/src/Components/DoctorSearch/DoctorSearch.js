@@ -1,42 +1,52 @@
 // import react
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 
 // import react bootstrap
 import {Form, Dropdown,} from 'react-bootstrap'
 
+// import local modles
+import SearchList from './SearchList/SearchList';
+
 const DoctorSearch = ({hostname}) =>{
 
     // search info variables
-    let name = 'null';
-    let special = 'null';
-    let gender = 'null';
+    let [name, setName] = useState('null');
+    let [special, setSpecial] = useState('null');
+    let [gender, setGender] = useState('null');
+
+    // searchdata state
+    let [searchData, setSearchData] = useState([]);
+
 
     const onNameChange = (event) =>{
-        name = event.target.value
-        if (name === ""){
-            name = "null"
-        }
-
+        setName(event.target.value)
     }
 
     const onSpecialChange = (event) =>{
-        special = event.target.value
-        if (special === ""){
-            special = "null"
-        }
+        setSpecial(event.target.value)
     }
 
     const onGenderSelect = (event) =>{
-        gender = event
+        setGender(event)
     }
 
     useEffect( () =>{
         const req = hostname + 'd/name=' + name + '/special=' + special+ '/gender=' + gender;
+        
+        if (name.length === 0){
+            setName('null')
+        }
+
+        if (special.length === 0){
+            setSpecial('null')
+        }
+
         fetch(req).then(
             (response) =>{
-                response.json.then(
+                console.log(response)
+                response.json().then(
                     (data)=>{
-                        console.log(data)
+                        setSearchData(data)
                     }
                 )
             }
@@ -67,6 +77,7 @@ const DoctorSearch = ({hostname}) =>{
                     </Dropdown>
                 </Form.Group>
             </Form>
+            <SearchList objList = {searchData}/>
         </div>
     )
 }

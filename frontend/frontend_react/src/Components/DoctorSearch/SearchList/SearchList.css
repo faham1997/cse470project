@@ -1,0 +1,7 @@
+table#demotable {
+    table-layout: fixed ;
+    width: 80rem;
+    border-collapse: collapse ;
+    border: 1px black solid ;
+    text-align: center;
+}
