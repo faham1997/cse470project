@@ -1,0 +1,12 @@
+.home_title{
+    text-align: center;
+    margin: 2rem;
+    padding:2rem;
+    background-color: rgb(10, 150, 150);
+    color: cornsilk;
+}
+
+.home_text{
+    margin:2rem;
+    text-align: left;
+}
