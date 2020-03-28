@@ -3,7 +3,7 @@ const express = require("express")
 const app = express()
 
 // knex db
-const pg = require('./pg_knex_deploy')
+const pg = require('./pg_knex')
 
 // cors
 const cors = require('cors')
@@ -12,6 +12,10 @@ app.use(cors())
 //bcrypt
 const bcrypt = require('bcrypt');
 const hashStr = 10;
+
+//body parser 
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 // deault root path for testing
 app.get('/', (req, res) =>{
