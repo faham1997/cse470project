@@ -39,7 +39,6 @@ app.post("/register", (req, res) => {
       pass_hash: hash_password
   }
 
-
   pg('users')
   .insert(new_user)
   .then( () =>{
@@ -51,6 +50,30 @@ app.post("/register", (req, res) => {
 
 })
 
+app.post("/remove_user", (req, res) => {
+
+  const {name, email } = req.body;
+
+  if (email === null) {
+      res.json("Empty Email");
+  }
+
+  let new_user = {
+      user_id: email,
+      name: name
+  }
+
+  pg('users')
+  .where(new_user)
+  .del()
+  .then( () =>{
+      res.status(200).json("USER REMOVED");
+  })
+  .catch( (err) =>{
+      res.status(400).json("REGISTRATION ERROR")
+  });
+
+})
 
 
 //get doctor info by name, gender & specialization
