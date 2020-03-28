@@ -9,9 +9,42 @@ const pg = require('./pg_knex_deploy')
 const cors = require('cors')
 app.use(cors())
 
+//bcrypt
+const bcrypt = require('bcrypt');
+const hashStr = 10;
+
 // deault root path for testing
 app.get('/', (req, res) =>{
     res.status(200).json("This is the root path. Please consult the api docs for more info")
+})
+
+
+//register func
+app.post("/register", (req, res) => {
+
+  const {name, email, password } = req.body;
+  let hash_password = bcrypt.hashSync(password, hashStr);
+  
+  if (email === null || password === null) {
+      res.json("Empty Email or password");
+  }
+
+  let new_user = {
+      user_id: email,
+      name: name,
+      pass_hash: hash_password
+  }
+
+
+  pg('users')
+  .insert(new_user)
+  .then( () =>{
+      res.status(200).json("REGISTERED");
+  })
+  .catch( (err) =>{
+      res.status(400).json("REGISTRATION ERROR")
+  });
+
 })
 
 
