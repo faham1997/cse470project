@@ -82,7 +82,20 @@ describe("Test the user registration function ", () => {
             "name": "a",
             "password" : "a"
         }
-        const response = await request(app).get("/register").send(testBody)
+        const response = await request(app).post("/register").send(testBody)
+        expect(response.statusCode).toBe(200);
+        done();
+    });
+});
+
+describe("Test the user removal function ", () => {
+    test("It should respond to the POST method with 200", async(done) => {
+        const testBody = {
+            "email" : "a@a",
+            "name": "a",
+            "password" : "a"
+        }
+        const response = await request(app).post("/remove_user").send(testBody)
         expect(response.statusCode).toBe(200);
         done();
     });
