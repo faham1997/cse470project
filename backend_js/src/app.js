@@ -50,6 +50,7 @@ app.post("/register", (req, res) => {
 
 })
 
+// user removal function (((NOTE: Remember to add admin authorization)))
 app.post("/remove_user", (req, res) => {
 
   const {name, email } = req.body;
@@ -70,11 +71,30 @@ app.post("/remove_user", (req, res) => {
       res.status(200).json("USER REMOVED");
   })
   .catch( (err) =>{
-      res.status(400).json("REGISTRATION ERROR")
+      res.status(400).json("REMOVAL ERROR")
   });
 
 })
 
+// user signin function
+app.post('/signin', async(req, res) =>{
+
+  const {email, password } = req.body;
+  
+  if (email === null || password === null) {
+      res.json("Empty Email or password");
+  }
+
+  const userData = await pg.select('*').from('users').where({user_id: email})
+  const signinSuccess = bcrypt.compareSync(password, userData[0].pass_hash);
+
+  if(signinSuccess){
+    res.json(200).json(userData.email)
+  }else{
+    res.json(400).json("SIGNIN ERROR")
+  }
+
+})
 
 //get doctor info by name, gender & specialization
 app.get('/d/name=:name/special=:special/gender=:gender', async(req, res)=>{
