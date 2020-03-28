@@ -75,6 +75,19 @@ describe("Test the hospital path with type parameter", () => {
     });
 });
 
+describe("Test the user registration function ", () => {
+    test("It should respond to the POST method with 200", async(done) => {
+        const testBody = {
+            "email" : "a@a",
+            "name": "a",
+            "password" : "a"
+        }
+        const response = await request(app).get("/register").send(testBody)
+        expect(response.statusCode).toBe(200);
+        done();
+    });
+});
+
 afterAll(async(done) => {
     await pg.destroy()
     done()
