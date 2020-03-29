@@ -137,6 +137,18 @@ app.get('/d', async(req, res)=>{
   }
 
 })
+// get all appointment times
+app.get('/all_appointments', async(req, res) =>{
+  
+  try{
+    let data = await pg.select('*').from('all_appointments')
+    console.log(data)
+    res.status(200).json(data)
+  }catch(err){
+    res.status(400).json("data_retrival_failed")
+  }
+
+})
 
 // get  doctor info with name only
 app.get('/d/name=:name', async(req, res)=>{
