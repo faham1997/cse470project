@@ -15,11 +15,13 @@
     <div class="container">
         <div class="card mt-5 w-100 border-primary">
             <h2 class="text-center pt-2">Doctor<span class="text-primary">Pur</span> </h2>
-            <h6 class="card-subtitle mb-2 text-muted text-right pr-3">- Better way to best physicians</h2>
+            <h6 class="card-subtitle mb-2 text-muted text-center pr-3">- Better way to best physicians</h2>
                 <div class="card-body text-center">
                     <h5 class="card-title">Search By...</h5>
                     <a href="./index.html" class="mb-2 btn btn-outline-primary btn-block" data-toggle="modal"
                         data-target="#exampleModal">Name</a>
+                    
+                        <!-- Search by NAME-->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -34,8 +36,8 @@
                                     <div class="input-group flex-nowrap">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="addon-wrapping">Name</span>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="Shafiur Rahman"
+                                        </div> <!-- Name search pop up Window-->
+                                        <input type="text" class="form-control" placeholder="Type Doctors Name" 
                                             aria-label="Username" aria-describedby="addon-wrapping">
                                     </div>
                                 </div>
@@ -45,12 +47,31 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Name search done-->
+
+                    <!-- Medical Field search-->
                     <a href="./index.html" class="btn mb-2 btn-outline-primary btn-block dropdown-toggle" type="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Medical Field</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">ENT</a>
                         <a class="dropdown-item" href="#">Cardiology</a>
+                        <a class="dropdown-item" href="#">Dermatology</a>
+                        <a class="dropdown-item" href="#">ENT</a>
+                        <a class="dropdown-item" href="#">Gastroenterology</a>
+                        <a class="dropdown-item" href="#">Gynaecology</a>
+                        <a class="dropdown-item" href="#">Hematology</a>
+                        <a class="dropdown-item" href="#">Medicine</a>
+                        <a class="dropdown-item" href="#">Nephrology</a>
+                        <a class="dropdown-item" href="#">Neurology</a>
+                        <a class="dropdown-item" href="#">Oncology</a>
+                        <a class="dropdown-item" href="#">Optometry</a>
+                        <a class="dropdown-item" href="#">Orthopedics</a>
+                        <a class="dropdown-item" href="#">Pediatrics</a>
+                        <a class="dropdown-item" href="#">Surgery</a>
+                        <a class="dropdown-item" href="#">Urology </a>
                     </div>
+                    <!-- Medical Field search Done-->
+                    
+                    <!-- Hospital search-->
                     <a href="./index.html" class="btn btn-outline-primary btn-block" data-toggle="modal"
                         data-target="#hospitalSearchModal">Hospital <i class="fa fa-home"></i>
                     </a>
@@ -69,7 +90,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="addon-wrapping">Hospital</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Enam Medical"
+                                        <input type="text" class="form-control" placeholder="Type Hospital Name"
                                             aria-label="Username" aria-describedby="addon-wrapping">
                                     </div>
                                 </div>
@@ -80,6 +101,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Hospital  search Done-->
                 <div class="card-body text-center">
                     <a href="./index.html" class="btn btn-outline-primary">Home</a>
                 </div>
