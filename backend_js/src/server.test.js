@@ -101,6 +101,34 @@ describe("Test the user signin function ", () => {
     });
 });
 
+describe("Test the user appointment add function ", () => {
+    test("It should respond to the POST method with 200", async(done) => {
+        const testBody ={
+            "user_id": "a@a",
+            "apt_id": "a",
+            "doctor_id": "zsen",
+            "hospital_id": "AlHoAb"
+        }
+        const response = await request(app).post("/add_user_apt").send(testBody)
+        expect(response.statusCode).toBe(200);
+        done();
+    });
+});
+
+describe("Test the user appointment removal function ", () => {
+    test("It should respond to the POST method with 200", async(done) => {
+        const testBody ={
+            "user_id": "a@a",
+            "apt_id": "a",
+            "doctor_id": "zsen",
+            "hospital_id": "AlHoAb"
+        }
+        const response = await request(app).post("/rem_user_apt").send(testBody)
+        expect(response.statusCode).toBe(200);
+        done();
+    });
+});
+
 describe("Test the user removal function ", () => {
     test("It should respond to the POST method with 200", async(done) => {
         const testBody = {
