@@ -150,10 +150,28 @@ app.post('/add_user_apt', async(req, res) =>{
   
   try{
     let data = await pg('user_apt').insert(userData)
-    console.log(data)
     res.status(200).json("APPOINTMENT ADDED")
   }catch(err){
     res.status(400).json("data_insertion_failed")
+  }
+})
+
+
+// remove an user appointment
+app.post('/rem_user_apt', async(req, res) =>{
+  const {user_id, apt_id,doctor_id, hospital_id} = req.body
+  const userData = {
+    user_id: user_id,
+    apt_id: apt_id,
+    doctor_id: doctor_id,
+    hospital_id: hospital_id
+  }
+  
+  try{
+    let data = await pg('user_apt').where(userData).del()
+    res.status(200).json("APPOINTMENT DELETED")
+  }catch(err){
+    res.status(400).json("data_removal_failed")
   }
 })
 
