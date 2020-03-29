@@ -137,12 +137,31 @@ app.get('/d', async(req, res)=>{
   }
 
 })
+
+// add an user appointment
+app.post('/add_user_apt', async(req, res) =>{
+  const {user_id, apt_id,doctor_id, hospital_id} = req.body
+  const userData = {
+    user_id: user_id,
+    apt_id: apt_id,
+    doctor_id: doctor_id,
+    hospital_id: hospital_id
+  }
+  
+  try{
+    let data = await pg('user_apt').insert(userData)
+    console.log(data)
+    res.status(200).json("APPOINTMENT ADDED")
+  }catch(err){
+    res.status(400).json("data_insertion_failed")
+  }
+})
+
 // get all appointment times
 app.get('/all_appointments', async(req, res) =>{
   
   try{
     let data = await pg.select('*').from('all_appointments')
-    console.log(data)
     res.status(200).json(data)
   }catch(err){
     res.status(400).json("data_retrival_failed")
