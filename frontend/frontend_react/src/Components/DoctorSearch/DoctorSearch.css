@@ -1,0 +1,16 @@
+.doctor_form{
+    text-align: center;
+    width: 100%;
+    max-width: 330px;
+    padding : 15px;
+    margin: auto;
+    height :100%;
+}
+
+.doctor_title{
+    text-align: center;
+    margin: 2rem;
+    padding:2rem;
+    background-color: rgb(10, 150, 150);
+    color: cornsilk;
+}

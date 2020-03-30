@@ -535,4 +535,3 @@ ALTER TABLE ONLY public.user_apt
 --
 -- PostgreSQL database dump complete
 --
-
