@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DoctorPur</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -11,18 +11,38 @@
 
 <body style="background-color: #fefefe;">
     <div class="container">
-        <div class="card mt-5 w-100 border-primary" ><!--card for Border and content-->
+        <div class="card mt-5 w-100 border-primary">
+            <!--card for Border and content-->
             <h2 class="text-center pt-2">Doctor<span class="text-primary">Pur</span> </h2>
             <h6 class="card-subtitle mb-3 text-muted text-center pr-10">- Better way to best physicians</h2>
-            <div class="card-body text-center">
-                <h5 class="card-title">Welcome</h5>
-                <p class="card-text">To continue, press one of the buttons</p>
-            </div>
-            <div class="card-body text-center">
-                <p class="font-weight-bold">Who are you?</p>
-                <a href="./doctor-dashboard.html" class="btn btn-outline-primary">Doctor</a><!--Search Button with hyperlink-->
-                <a href="./patient-dashboard.html" class="btn btn-outline-primary">Patient</a><!--Search Button with hyperlink-->
-            </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">Welcome</h5>
+                    <p class="card-text">To continue, press one of the buttons</p>
+                </div>
+                <div class="card-body text-center">
+                    <p class="font-weight-bold">Who are you?</p>
+
+
+
+
+                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary btn-lg"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Doctor
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+
+                        <a class="dropdown-item" href="./doctor-log-in.html"><span class="text-primary">Log
+                                In</span></a>
+
+                        <a class="dropdown-item" href="./doctor-dashboard.html"><span class="text-primary">Sign
+                                Up</span></a>
+                    </div>
+
+
+                    <!--<a href="./doctor-dashboard.html" class="btn btn-outline-primary btn-lg">Doctor</a> -->
+                    <a href="./patient-dashboard.html" class="btn btn-outline-primary btn-lg">Patient</a>
+                    <!--Search Button with hyperlink-->
+                </div>
         </div>
 
     </div>
