@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import Navigation from './Components/Navigation/Navigation'
 import Homepage from './Components/Homepage/Homepage'
 import Login from './Components/Login/Login'
+import Registration from './Components/Registration/Registration'
 
 function App() {
 

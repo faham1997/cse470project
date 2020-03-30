@@ -11,6 +11,7 @@ import "./Navigation.css"
 import Homepage from '../Homepage/Homepage'
 import DoctorSearch from '../DoctorSearch/DoctorSearch'
 import Login from '../Login/Login'
+import Registration from '../Registration/Registration'
 
 const Navigation = ({currentPageSetter, hostname}) =>{
 
@@ -27,10 +28,14 @@ const Navigation = ({currentPageSetter, hostname}) =>{
         currentPageSetter(<Login/>)
     }
 
+    const onRegistration = () =>{
+        currentPageSetter(<Registration/>)
+    }
+
     return(
         <nav className = "base_nav">
             <Navbar sticky = "top" bg="light" expand="lg" >
-                <Navbar.Brand href="#home">Doctor Coconut</Navbar.Brand>
+                <Navbar.Brand href="#home">Doctorpur</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">

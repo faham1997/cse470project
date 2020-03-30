@@ -9,7 +9,7 @@ const Homepage = () =>{
 
         <div>
             <div className = 'home_title'>
-                <h1> Welcome to Doctor Coconut </h1>
+                <h1> Welcome to Doctorpur</h1>
                 <h5> The best place to find doctors you need </h5>
             </div>
             <div className = 'home_text'>
