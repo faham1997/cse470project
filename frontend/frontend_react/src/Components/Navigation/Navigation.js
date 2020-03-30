@@ -13,7 +13,7 @@ import DoctorSearch from '../DoctorSearch/DoctorSearch'
 import Login from '../Login/Login'
 import Registration from '../Registration/Registration'
 
-const Navigation = ({currentPageSetter, hostname}) =>{
+const Navigation = ({currentPageSetter, hostname, setUserName, setUserEmail}) =>{
 
     // navigation link controls
     const onHome = () =>{
@@ -25,7 +25,7 @@ const Navigation = ({currentPageSetter, hostname}) =>{
     }
 
     const onLogin = () =>{
-        currentPageSetter(<Login/>)
+        currentPageSetter(<Login hostName = {hostname} setUserName = {setUserName} setUserEmail={setUserEmail} setHome = {onHome}/>)
     }
 
     const onRegistration = () =>{

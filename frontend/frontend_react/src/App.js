@@ -9,6 +9,10 @@ import Registration from './Components/Registration/Registration'
 
 function App() {
 
+  // users info states
+  const [userName, setUserName] = useState("")
+  const [userEmail, setUserEmail] = useState("")
+
   // hostname
   const hostname = "https://cse470project.herokuapp.com/"
 
@@ -17,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation currentPageSetter = {setCurrentPage} hostname = {hostname}/>
+      <Navigation currentPageSetter = {setCurrentPage} hostname = {hostname} setUserName = {setUserName} setUserEmail = {setUserEmail}/>
       <div>
         {currentPage}
       </div>
