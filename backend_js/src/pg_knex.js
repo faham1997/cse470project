@@ -6,7 +6,8 @@ const pg = require('knex')({
     user : 'postgres',
     password : 'deepfreeze',
     database : '470project'
-  }
+  },
+  ssl: true
 });
 
 module.exports = pg

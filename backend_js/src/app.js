@@ -84,14 +84,18 @@ app.post('/signin', async(req, res) =>{
   if (email === null || password === null) {
       res.json("Empty Email or password");
   }
-
+   
   const userData = await pg.select('*').from('users').where({user_id: email})
   const signinSuccess = bcrypt.compareSync(password, userData[0].pass_hash);
 
   if(signinSuccess){
-    res.json(200).json(userData.email)
+    const mockUser = {
+      email: userData[0].user_id,
+      name: userData[0].name
+    }
+    res.status(200).json(mockUser)
   }else{
-    res.json(400).json("SIGNIN ERROR")
+    res.status(400).json("SIGNIN ERROR")
   }
 
 })
