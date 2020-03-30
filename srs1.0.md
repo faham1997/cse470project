@@ -88,13 +88,7 @@
 
 
 
-### Revisions
 
-| Version | Primary Author(s) | Description of Version | Date Completed |
-| --- | --- | --- | --- |
-| Draft Type and Number | Full Name | Information about the revision. This table does not need to be filled in whenever a document is touched, only when the version is being upgraded. | 00/00/00 |
-<br>
-<br>
  
 -------------------
 <br>
