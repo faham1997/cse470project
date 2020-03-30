@@ -73,10 +73,10 @@ const DoctorSearch = ({hostname}) =>{
             <Form className = "doctor_form">
                 <Form.Group>
                     <Form.Label> Doctors Name </Form.Label>
-                    <Form.Control type="text" placeholder="Normal text" onChange = {onNameChange}/>
+                    <Form.Control type="text" placeholder="Enter doctor's name" onChange = {onNameChange}/>
 
                     <Form.Label> Doctors Specialization </Form.Label>
-                    <Form.Control type="text" placeholder="Normal text" onChange = {onSpecialChange}/>
+                    <Form.Control type="text" placeholder="Enter Doctor's specialization" onChange = {onSpecialChange}/>
 
                     <Form.Label> Doctor Gender</Form.Label>
                     <Dropdown>
