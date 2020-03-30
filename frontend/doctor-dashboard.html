@@ -17,84 +17,253 @@
             <h2 class="text-center pt-2">Doctor<span class="text-primary">Pur</span> </h2>
             <h6 class="card-subtitle mb-2 text-muted text-center pr-3">- Better way to best physicians</h2>
                 <div class="card-body text-center">
-                    <h5 class="card-title">Your Credentials</h5>
-                    </h6><br>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Name</span>
+                    <br>
+                    <br>
+                    <h5 class="card-title"> Information and Credentials</h5>
+                    <br>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputName1"><b>First Name</b></label>
+                                <input type="name" class="form-control" id="inputName1" placeholder="Type First Name">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputName2"><b>Last Name</b></label>
+                                <input type="name" class="form-control" id="inputName2" placeholder="Type Last Name">
+                            </div>
                         </div>
-                        <input type="text" class="form-control" placeholder="Type your Name" aria-label="Username"
-                            aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Registration Number</span>
+                        <br>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputDRN"><b>Doctor Registration Number </b></label>
+                                <input type="numerical" class="form-control" id="inputDRN"
+                                    placeholder="Type BMDC Reg no.">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputID"><b>National ID</b></label>
+                                <input type="numerical" class="form-control" id="inputID" placeholder="Type NID no.">
+                            </div>
                         </div>
-                        <input type="text" class="form-control" placeholder="Type Doctor Registration Number" aria-label="Username "
-                            aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Medical Degree </span>
+
+                        <br>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputState"><b>Medical Designation</b></label>
+                                <select id="inputState" class="form-control">
+                                    <option value="1">N/A</option>
+                                    <option value="2">Professor & Department Head</option>
+                                    <option value="3">Professor</option>
+                                    <option value="4">Associate Professor</option>
+                                    <option value="5">Assistant Professor</option>
+                                    <option value="6">Lecturar</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputZip"><b>Institution </b></label>
+                                <input type="text" class="form-control" id="inputZip"
+                                    placeHolder="eg. Dhaka Medical College">
+                            </div>
                         </div>
-                        <input type="text" class="form-control" placeholder="Type Medical Degrees" aria-label="Username"
-                            aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Medical Institute </span>
+                        <br>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <h6><b>Select Professional Degrees</b></h6>
+                                <br style="line-height: 5px" />
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                        value="option1">
+                                    <label class="form-check-label" for="inlineCheckbox1">FCPS</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                        value="option2">
+                                    <label class="form-check-label" for="inlineCheckbox2">FRCS</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                        value="option3">
+                                    <label class="form-check-label" for="inlineCheckbox3">MD </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4"
+                                        value="option4">
+                                    <label class="form-check-label" for="inlineCheckbox4">MRCP </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox5"
+                                        value="option5">
+                                    <label class="form-check-label" for="inlineCheckbox5">MD </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option6"
+                                        value="option6">
+                                    <label class="form-check-label" for="inlineCheckbox6">DO </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option">
+                                    <label class="form-check-label" for="inlineCheckbox7">PHD </label>
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-6">
+
+                                <label for="inputState"><b>Specialization</b></label>
+                                <br style="line-height: 5px" />
+                                <select id="inputState" class="form-control">
+                                    <option value="1">Cardiology</option>
+                                    <option value="2">Dermatology</option>
+                                    <option value="3">ENT</option>
+                                    <option value="4">Gastroenterology</option>
+                                    <option value="5">Gynaecology</option>
+                                    <option value="6">Hematology</option>
+                                    <option value="6">Medicine</option>
+                                    <option value="6">Nephrology</option>
+                                    <option value="6">Neurology</option>
+                                    <option value="6">Pediatrics</option>
+                                    <option value="6">Surgery</option>
+                                    <option value="6">Urology</option>
+                                </select>
+
+                            </div>
+
                         </div>
-                        <input type="text" class="form-control" placeholder="Type name of Medical Institutes you studied" aria-label="Username"
-                            aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Chamber Address 1</span>
+                        <br>
+                        <br>
+                        <h5>Appointment Information</h5>
+                        <br>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="add1"><b>Clinic Address </b></label>
+                                <input type="name" class="form-control" id="add1" placeholder="Clinic you practice">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="add2"><b>District</b></label>
+                                <input type="name" class="form-control" id="add2" placeholder="Clinic you practice">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="add2"><b>Zip Code</b></label>
+                                <input type="name" class="form-control" id="add2" placeholder="Clinic you practice">
+                            </div>
                         </div>
-                        <input type="text" class="form-control" placeholder="Type Chamber Address" aria-label="Username"
-                            aria-describedby="basic-addon1"> 
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Chamber Address 2</span>
+                        <br>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="inputState"><b>Day</b></label>
+                                <select id="inputState" class="form-control">
+                                    <option value="1">Saturday</option>
+                                    <option value="2">Sunday</option>
+                                    <option value="3">Monday</option>
+                                    <option value="4">Tuesday</option>
+                                    <option value="5">Wednesday</option>
+                                    <option value="6">Thursday</option>
+                                    <option value="7">Friday</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="inputName2"><b>From</b></label>
+                                <input type="number" class="form-control" id="inputName2" placeholder="Starts at ">
+                            </div>
+                            <div class="form-group col-md-1">
+                                <label for="inputState"><b>am/pm</b></label>
+                                <select id="inputState" class="form-control">
+                                    <option value="1">am</option>
+                                    <option value="2">pm</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="inputName2"><b>To</b></label>
+                                <input type="number" class="form-control" id="inputName2" placeholder="Ends at ">
+                            </div>
+                            <div class="form-group col-md-1">
+                                <label for="inputState"><b>am/pm</b></label>
+                                <select id="inputState" class="form-control">
+                                    <option value="1">am</option>
+                                    <option value="2">pm</option>
+                                </select>
+                            </div>
                         </div>
-                        <input type="text" class="form-control" placeholder="Type Chamber Address" aria-label="Username"
-                            aria-describedby="basic-addon1"> 
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Amount of Regular Visit</span>
+                        <br>
+                        <br>
+                        <h5>Log In Information</h5>
+                        <br>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                                <small id="emailHelp" class="form-text text-muted">Your email will always be
+                                    confidential</small>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
                         </div>
-                        <input type="text" class="form-control" placeholder="Type the amount in BDT" aria-label="Username"
-                            aria-describedby="basic-addon1"> 
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Email</span>
+                        <br>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        I agree with the turms and policies of Doctorpur </label>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+
+                            </div>
                         </div>
-                        <input type="text" class="form-control" placeholder="Type Email" aria-label="Username"
-                            aria-describedby="basic-addon1"> 
+                        <br>
+                        <br>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+                            data-target="#staticBackdrop">
+                            Sign up </button>
+
+                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel"> Check your inbox to verify
+                                            your email
+                                        </h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        We've sent an email to you.
+                                        Follow the instructions to verify your email address.
+                                    </div>
+                                    <div class="modal-footer">
+                                        
+                                        <a href="./index.html" class="btn btn-outline-primary">Home <i
+                                                class="fa fa-home"></i> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                    <br>
+
+                    <div class="card-body text-center">
+                        <a href="./index.html" class="btn btn-outline-primary btn-lg">Home <i class="fa fa-home"></i> </a>
                     </div>
-                    
-                   <br>
-                    <div class="btn btn-block btn-outline-primary text-center">Submit</div>
                 </div>
-                <div class="card-body text-center">
-                    <a href="./index.html" class="btn btn-outline-primary">Home <i class="fa fa-home"></i> </a>
-                </div>
+
         </div>
 
-    </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>
