@@ -12,6 +12,7 @@ import Homepage from '../Homepage/Homepage'
 import DoctorSearch from '../DoctorSearch/DoctorSearch'
 import Login from '../Login/Login'
 import Registration from '../Registration/Registration'
+import HospitalSearch from '../HospitalSearch/HospitalSearch'
 
 const Navigation = ({currentPageSetter, hostname, setUserName, setUserEmail}) =>{
 
@@ -22,6 +23,11 @@ const Navigation = ({currentPageSetter, hostname, setUserName, setUserEmail}) =>
 
     const onDoctorSearch = () =>{
         currentPageSetter(<DoctorSearch hostname = {hostname}/>)
+    }
+
+
+    const onHospitalSearch = () =>{
+        currentPageSetter(<HospitalSearch hostname = {hostname}/>)
     }
 
     const onLogin = () =>{
@@ -42,7 +48,7 @@ const Navigation = ({currentPageSetter, hostname, setUserName, setUserEmail}) =>
                         <Nav.Link onClick = {onHome}> Home </Nav.Link>
                         <Nav.Link> Manage Appointments </Nav.Link>
                         <Nav.Link onClick = {onDoctorSearch} > Search for Doctors</Nav.Link>
-                        <Nav.Link> Search for Hospitals</Nav.Link>
+                        <Nav.Link onClick = {onHospitalSearch}> Search for Hospitals</Nav.Link>
                         <Nav.Link onClick = {onLogin}> Login </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

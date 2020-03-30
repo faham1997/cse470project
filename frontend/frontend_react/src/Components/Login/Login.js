@@ -62,4 +62,4 @@ const Login =  ({hostName, setUserName, setUserEmail, setHome}) => {
   );
 }
 
-export default Login;heroku run rake db:migrate
+export default Login;
