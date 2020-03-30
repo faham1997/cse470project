@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 // import local modules
 import Navigation from './Components/Navigation/Navigation'
 import Homepage from './Components/Homepage/Homepage'
+import Login from './Components/Login/Login'
 
 function App() {
 

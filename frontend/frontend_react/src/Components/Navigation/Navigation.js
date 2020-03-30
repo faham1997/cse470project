@@ -10,7 +10,7 @@ import "./Navigation.css"
 // import local modules
 import Homepage from '../Homepage/Homepage'
 import DoctorSearch from '../DoctorSearch/DoctorSearch'
-
+import Login from '../Login/Login'
 
 const Navigation = ({currentPageSetter, hostname}) =>{
 
@@ -21,6 +21,10 @@ const Navigation = ({currentPageSetter, hostname}) =>{
 
     const onDoctorSearch = () =>{
         currentPageSetter(<DoctorSearch hostname = {hostname}/>)
+    }
+
+    const onLogin = () =>{
+        currentPageSetter(<Login/>)
     }
 
     return(
@@ -34,6 +38,7 @@ const Navigation = ({currentPageSetter, hostname}) =>{
                         <Nav.Link> Manage Appointments </Nav.Link>
                         <Nav.Link onClick = {onDoctorSearch} > Search for Doctors</Nav.Link>
                         <Nav.Link> Search for Hospitals</Nav.Link>
+                        <Nav.Link onClick = {onLogin}> Login </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
