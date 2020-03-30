@@ -3,13 +3,98 @@ const express = require("express")
 const app = express()
 
 // knex db
-const pg = require('./pg_knex_deploy')
+const pg = require('./pg_knex')
+
+// cors
+const cors = require('cors')
+app.use(cors())
+
+//bcrypt
+const bcrypt = require('bcrypt');
+const hashStr = 10;
+
+//body parser 
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 // deault root path for testing
 app.get('/', (req, res) =>{
     res.status(200).json("This is the root path. Please consult the api docs for more info")
 })
 
+
+//register func
+app.post("/register", (req, res) => {
+
+  const {name, email, password } = req.body;
+  let hash_password = bcrypt.hashSync(password, hashStr);
+  
+  if (email === null || password === null) {
+      res.json("Empty Email or password");
+  }
+
+  let new_user = {
+      user_id: email,
+      name: name,
+      pass_hash: hash_password
+  }
+
+  pg('users')
+  .insert(new_user)
+  .then( () =>{
+      res.status(200).json("REGISTERED");
+  })
+  .catch( (err) =>{
+      res.status(400).json("REGISTRATION ERROR")
+  });
+
+})
+
+// user removal function (((NOTE: Remember to add admin authorization)))
+app.post("/remove_user", (req, res) => {
+
+  const {name, email } = req.body;
+
+  if (email === null) {
+      res.json("Empty Email");
+  }
+
+  let new_user = {
+      user_id: email,
+      name: name
+  }
+
+  pg('users')
+  .where(new_user)
+  .del()
+  .then( () =>{
+      res.status(200).json("USER REMOVED");
+  })
+  .catch( (err) =>{
+      res.status(400).json("REMOVAL ERROR")
+  });
+
+})
+
+// user signin function
+app.post('/signin', async(req, res) =>{
+
+  const {email, password } = req.body;
+  
+  if (email === null || password === null) {
+      res.json("Empty Email or password");
+  }
+
+  const userData = await pg.select('*').from('users').where({user_id: email})
+  const signinSuccess = bcrypt.compareSync(password, userData[0].pass_hash);
+
+  if(signinSuccess){
+    res.json(200).json(userData.email)
+  }else{
+    res.json(400).json("SIGNIN ERROR")
+  }
+
+})
 
 //get doctor info by name, gender & specialization
 app.get('/d/name=:name/special=:special/gender=:gender', async(req, res)=>{
@@ -49,6 +134,55 @@ app.get('/d', async(req, res)=>{
     res.status(200).json(data)
   }catch(err){
     res.status(400).json("search_failed")
+  }
+
+})
+
+// add an user appointment
+app.post('/add_user_apt', async(req, res) =>{
+  const {user_id, apt_id,doctor_id, hospital_id} = req.body
+  const userData = {
+    user_id: user_id,
+    apt_id: apt_id,
+    doctor_id: doctor_id,
+    hospital_id: hospital_id
+  }
+  
+  try{
+    let data = await pg('user_apt').insert(userData)
+    res.status(200).json("APPOINTMENT ADDED")
+  }catch(err){
+    res.status(400).json("data_insertion_failed")
+  }
+})
+
+
+// remove an user appointment
+app.post('/rem_user_apt', async(req, res) =>{
+  const {user_id, apt_id,doctor_id, hospital_id} = req.body
+  const userData = {
+    user_id: user_id,
+    apt_id: apt_id,
+    doctor_id: doctor_id,
+    hospital_id: hospital_id
+  }
+  
+  try{
+    let data = await pg('user_apt').where(userData).del()
+    res.status(200).json("APPOINTMENT DELETED")
+  }catch(err){
+    res.status(400).json("data_removal_failed")
+  }
+})
+
+// get all appointment times
+app.get('/all_appointments', async(req, res) =>{
+  
+  try{
+    let data = await pg.select('*').from('all_appointments')
+    res.status(200).json(data)
+  }catch(err){
+    res.status(400).json("data_retrival_failed")
   }
 
 })
